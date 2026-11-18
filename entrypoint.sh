@@ -26,17 +26,22 @@ then
 	ssh-keyscan -p $SSH_PORT -H "$SSH_HOST" >> /root/.ssh/known_hosts
 fi
 
-rsync --progress -avzh \
-	--exclude='.git/' \
-	--exclude='.git*' \
-	--exclude='.editorconfig' \
-	--exclude='.styleci.yml' \
-	--exclude='.idea/' \
-	--exclude='Dockerfile' \
-	--exclude='readme.md' \
-	--exclude='README.md' \
-	-e "ssh -i /root/.ssh/id_rsa" \
-	--rsync-path="rsync" . $SSH_USER@$SSH_HOST:$PATH_SOURCE
+#rsync --progress -avzh \
+#	--exclude='.git/' \
+#	--exclude='.git*' \
+#	--exclude='.editorconfig' \
+#	--exclude='.styleci.yml' \
+#	--exclude='.idea/' \
+#	--exclude='Dockerfile' \
+#	--exclude='readme.md' \
+#	--exclude='README.md' \
+#	-e "ssh -i /root/.ssh/id_rsa" \
+#	--rsync-path="rsync" . $SSH_USER@$SSH_HOST:$PATH_SOURCE
+
+
+scp -r ./   $SSH_USER@SSH_HOST:$PATH_SOURCE
+
+
 
 if [ $? -eq 0 ]
 then
