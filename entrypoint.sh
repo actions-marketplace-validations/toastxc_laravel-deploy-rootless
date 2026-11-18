@@ -39,7 +39,7 @@ fi
 #	--rsync-path="rsync" . $SSH_USER@$SSH_HOST:$PATH_SOURCE
 
 
-scp -r ./   $SSH_USER@SSH_HOST:$PATH_SOURCE
+scp -r ./   $SSH_USER@$SSH_HOST:$PATH_SOURCE
 
 
 
