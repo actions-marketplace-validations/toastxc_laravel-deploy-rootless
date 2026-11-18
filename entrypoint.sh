@@ -38,8 +38,8 @@ fi
 #	-e "ssh -i /root/.ssh/id_rsa" \
 #	--rsync-path="rsync" . $SSH_USER@$SSH_HOST:$PATH_SOURCE
 
-
-scp -r ./   "$SSH_USER"@"$SSH_HOST":"$PATH_SOURCE"
+ls -lsa
+scp -r .   "$SSH_USER"@"$SSH_HOST":"$PATH_SOURCE"
 
 
 
