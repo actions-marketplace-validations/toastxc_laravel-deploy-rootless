@@ -31,6 +31,12 @@ fi
 ls -lsa
 #scp -r *   "$SSH_USER"@"$SSH_HOST":"$PATH_SOURCE"
 
+
+apk update \
+	&& apk upgrade \
+	&& apk add --no-cache rsync openssh-client \
+	&& rm -rf /var/cache/apk/*
+
 rsync --progress -avzh \
 	--exclude='.git/' \
 	--exclude='.git*' \
